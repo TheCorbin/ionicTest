@@ -4,12 +4,14 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    frameworks: ['jasmine', 'karma-typescript', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-junit-reporter'),
       require('karma-coverage'),
+      require('karma-typescript'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -24,6 +26,16 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
+    files: [
+      { pattern: "test/**/*.spec.ts", watched: false },
+    ],
+    preprocessors: {
+      "**/*.ts": "karma-typescript" // *.tsx for React Jsx
+    },
+    junitReporter: {
+      useBrowserName: false,
+      outputFile: 'test-results.xml'
+    },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/ngv'),
       subdir: '.',
@@ -32,7 +44,7 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'junit', 'karma-typescript'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
