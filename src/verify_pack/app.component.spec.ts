@@ -1,9 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 
-import { AppComponent } from '../../src/app/app.component';
+import { AppComponent } from '../app/app.component';
 
-describe('AppComponent', () => {
+describe('verify_pack.AppComponent [Verify]', () => {
 
   beforeEach(waitForAsync(() => {
 

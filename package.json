@@ -27,7 +27,16 @@
     "@ionic/angular": "^5.5.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "jest-junit": "^13.0.0"
+  },
+  "jest-junit": {
+    "outputName": "./test-results.xml",
+    "suiteName": "jest tests",
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}",
+    "ancestorSeparator": " › "
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.1.1",
@@ -43,6 +52,7 @@
     "@ionic/angular-toolkit": "^4.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/karma": "^6.3.1",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
@@ -58,6 +68,8 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "karma-junit-reporter": "^2.0.1",
+    "karma-typescript": "^5.5.2",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "typescript": "~4.2.4"

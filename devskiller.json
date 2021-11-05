@@ -4,7 +4,7 @@
     "pathPatterns": ["**verify_pack**"]
   },
   "readOnlyFiles": [
-    "package.json",
+    "package.json"
   ],
   "hiddenFiles": [
     "node_modules",
