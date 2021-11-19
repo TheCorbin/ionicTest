@@ -56,6 +56,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
+    await this.storage.create();
     this.checkLoginStatus();
     this.listenForLoginEvents();
 
@@ -82,10 +83,14 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(async () => {
-      await StatusBar.setStyle({style: Style.Dark});
-      if (Capacitor.getPlatform() === 'android') {
-        await StatusBar.setOverlaysWebView({overlay: false});
-        await StatusBar.show();
+      try {
+        await StatusBar.setStyle({style: Style.Dark});
+        if (Capacitor.getPlatform() === 'android') {
+          await StatusBar.setOverlaysWebView({overlay: false});
+          await StatusBar.show();
+        }
+      } catch (e) {
+        console.log('Error',e?.message);
       }
       await SplashScreen.hide();
     });
