@@ -58,6 +58,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'volunteer',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../volunteer/volunteer.module').then(m => m.VolunteerModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/app/tabs/schedule',
         pathMatch: 'full'
