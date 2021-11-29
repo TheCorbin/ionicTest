@@ -1,29 +1,31 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { PopoverController } from '@ionic/angular';
+import {EmployeeData, ListGenerator} from '../../providers/tree-generator.service';
+import {Names} from '../../providers/names';
 
-import { PopoverPage } from '../about-popover/about-popover';
+const NUM_RANGE: [number, number] = [23, 28];
 
 @Component({
   selector: 'page-volunteer',
   templateUrl: 'volunteer.html',
   styleUrls: ['./volunteer.scss'],
 })
-export class VolunteerPage {
-  location = 'madison';
-  conferenceDate = '2047-05-17';
+export class VolunteerPage implements OnInit {
+  workshopList: EmployeeData[];
+  coffeeList: EmployeeData[];
 
-  selectOptions = {
-    header: 'Select a Location'
-  };
+  constructor(private generator: ListGenerator) { }
 
-  constructor(public popoverCtrl: PopoverController) { }
+  ngOnInit() {
+    this.workshopList = this.generator.generate(Names, NUM_RANGE, 100);
+    this.coffeeList = this.generator.generate(Names, NUM_RANGE, 100);
+  }
 
-  async presentPopover(event: Event) {
-    const popover = await this.popoverCtrl.create({
-      component: PopoverPage,
-      event
-    });
-    await popover.present();
+  add(list: EmployeeData[], name: string) {
+    list.unshift({ label: name, num: this.generator.generateNumber(NUM_RANGE) });
+  }
+
+  remove(list: EmployeeData[], node: EmployeeData) {
+    list.splice(list.indexOf(node), 1);
   }
 }

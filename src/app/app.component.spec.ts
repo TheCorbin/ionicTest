@@ -1,12 +1,13 @@
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Router} from '@angular/router';
 import {SwUpdate} from '@angular/service-worker';
-import {TestBed, async} from '@angular/core/testing';
+import {TestBed } from '@angular/core/testing';
 
 import {MenuController, Platform} from '@ionic/angular';
 import {IonicStorageModule} from '@ionic/storage-angular';
 import {AppComponent} from './app.component';
 import {UserData} from './providers/user-data';
+
 
 describe('AppComponent', () => {
   let menuSpy;
@@ -20,7 +21,7 @@ describe('AppComponent', () => {
   let app;
   let fixture;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
     routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
@@ -42,7 +43,7 @@ describe('AppComponent', () => {
         {provide: Platform, useValue: platformSpy}
       ]
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.debugElement.componentInstance;
@@ -55,7 +56,5 @@ describe('AppComponent', () => {
   it('should initialize the app', async () => {
     expect(platformSpy.ready).toHaveBeenCalled();
     await platformReadySpy;
-    expect(statusBarSpy.styleDefault).toHaveBeenCalled();
-    expect(splashScreenSpy.hide).toHaveBeenCalled();
   });
 });

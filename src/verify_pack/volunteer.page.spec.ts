@@ -1,21 +1,21 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {VolunteerPage} from '../app/pages/volunteer/volunteer';
 
-import { TabsPage } from '../app/tabs/tabs.page';
 
-describe('verify_pack.TabsPage', () => {
-  let component: TabsPage;
-  let fixture: ComponentFixture<TabsPage>;
+describe('verify_pack.VolunteerPage [Verify]', () => {
+  let component: VolunteerPage;
+  let fixture: ComponentFixture<VolunteerPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TabsPage],
+      declarations: [VolunteerPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabsPage);
+    fixture = TestBed.createComponent(VolunteerPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

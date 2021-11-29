@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import {VolunteerPageRoutingModule} from './volunteer-routing.module';
 import {VolunteerPage} from './volunteer';
+import {VolunteerListComponent} from './volunteer-list/volunteer-list.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import {VolunteerPage} from './volunteer';
     IonicModule,
     VolunteerPageRoutingModule
   ],
-  declarations: [VolunteerPage, ],
+  declarations: [VolunteerPage, VolunteerListComponent],
   bootstrap: [VolunteerPage],
 })
 export class VolunteerModule {}

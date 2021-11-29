@@ -30,51 +30,39 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Workshop Monitors</ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            <ion-item>
-              <ion-input placeholder="Enter your name"></ion-input>
-              <ion-button>Volunteer!</ion-button>
-            </ion-item>
-            <ion-item>
-              <ion-label>Braddock</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>G.I. Joe</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Rambo</ion-label>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
+        <app-volunteer-list
+          [data]="workshopList"
+          department="Workshop Monitors"
+          (add)="add(workshopList, $event)"
+          (remove)="remove(workshopList, $event)"
+        ></app-volunteer-list>
       </ion-col>
       <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Coffee Station</ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            <ion-item>
-              <ion-input placeholder="Enter your name"></ion-input>
-              <ion-button>Volunteer!</ion-button>
-            </ion-item>
-            <ion-item>
-              <ion-label>Braddock</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>G.I. Joe</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Rambo</ion-label>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
+        <app-volunteer-list
+          [data]="coffeeList"
+          department="Coffee Station"
+          (add)="add(coffeeList, $event)"
+          (remove)="remove(coffeeList, $event)"
+        ></app-volunteer-list>
       </ion-col>
     </ion-row>
+<!--    <ion-row>-->
+<!--      <ion-col>-->
+<!--        <app-volunteer-list-->
+<!--          [data]="infoList"-->
+<!--          department="Information Center"-->
+<!--          (add)="add(infoList, $event)"-->
+<!--          (remove)="remove(infoList, $event)"-->
+<!--        ></app-volunteer-list>-->
+<!--      </ion-col>-->
+<!--      <ion-col>-->
+<!--        <app-volunteer-list-->
+<!--          [data]="parkingList"-->
+<!--          department="Parking Area"-->
+<!--          (add)="add(parkingList, $event)"-->
+<!--          (remove)="remove(parkingList, $event)"-->
+<!--        ></app-volunteer-list>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
   </ion-grid>
 </ion-content>
