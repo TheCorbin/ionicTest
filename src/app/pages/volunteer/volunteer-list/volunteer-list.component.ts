@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {EmployeeData} from '../../../providers/tree-generator.service';
 import {VolunteerService} from '../volunteer.service';
 
@@ -30,5 +30,4 @@ export class VolunteerListComponent {
   calculate(num: number) {
     return this.volunteerService.pureFunctionBusinessRule(num);
   }
-
 }
