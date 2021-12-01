@@ -11,7 +11,8 @@
     <ion-item *ngFor="let volunteer of data">
       <ion-label>{{volunteer.label}} ({{ calculate( volunteer.num )}})</ion-label>
 <!--     <ion-label>{{volunteer.label}} ({{ volunteer.num | calculate}})</ion-label>-->
-      <ion-icon slot="end" name="trash"></ion-icon>
+      <ion-icon slot="end" name="delete"></ion-icon>
+<!--      <ion-icon slot="end" name="trash" (click)="remove.emit(volunteer)"></ion-icon>-->
     </ion-item>
   </ion-card-content>
 </ion-card>

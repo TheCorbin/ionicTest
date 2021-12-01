@@ -1,12 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
-
-import { AppComponent } from '../app/app.component';
-import {IonicStorageModule} from '@ionic/storage-angular';
-import {MenuController, Platform} from '@ionic/angular';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserData} from '../app/providers/user-data';
 import {SwUpdate} from '@angular/service-worker';
+import {TestBed } from '@angular/core/testing';
+
+import {MenuController, Platform} from '@ionic/angular';
+import {IonicStorageModule} from '@ionic/storage-angular';
+import {AppComponent} from '../app/app.component';
+import {UserData} from '../app/providers/user-data';
+
 
 describe('verify_pack.AppComponent [Verify]', () => {
   let menuSpy;
@@ -17,6 +18,8 @@ describe('verify_pack.AppComponent [Verify]', () => {
   let swUpdateSpy;
   let platformReadySpy;
   let platformSpy;
+  let app;
+  let fixture;
 
   beforeEach(() => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
@@ -31,22 +34,28 @@ describe('verify_pack.AppComponent [Verify]', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       imports: [IonicStorageModule.forRoot()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {provide: MenuController, useValue: menuSpy},
         {provide: Router, useValue: routerSpy},
         {provide: UserData, useValue: userDataSpy},
         {provide: SwUpdate, useValue: swUpdateSpy},
         {provide: Platform, useValue: platformSpy}
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      ]
     }).compileComponents();
   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.debugElement.componentInstance;
+  });
 
-  it('should create the app verify_pack.', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+  it('should create the app', () => {
     expect(app).toBeTruthy();
   });
-  // TODO: add more tests!
 
+  it('should initialize the app', async () => {
+    expect(platformSpy.ready).toHaveBeenCalled();
+    await platformReadySpy;
+  });
 });
+

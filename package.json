@@ -8,6 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test --karma-config karma.conf.js --source-map=false",
+    "test:watch": "ng test --karma-config karma.conf.js --source-map=false --watch",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
