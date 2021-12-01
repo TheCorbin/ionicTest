@@ -15,7 +15,13 @@ const fibonacci = (num: number): number => {
 })
 export class VolunteerService {
 
+  /**
+   * This is a SIMULATED EXPENSIVE BUSINESS RULE.
+   * DO NOT CHANGE THIS METHOD !!
+   * @param num
+   */
   pureFunctionBusinessRule(num: number) {
+    // DO NOT CHANGE THIS METHOD !!
     return fibonacci(num);
   }
 

@@ -30,20 +30,35 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <!-- Expected -->
         <app-volunteer-list
           [data]="workshopList"
           department="Workshop Monitors"
           (add)="add(workshopList, $event)"
           (remove)="remove(workshopList, $event)"
         ></app-volunteer-list>
+
+<!-- Provided-->
+<!--        <app-volunteer-list-->
+<!--          [data]="workshopList"-->
+<!--          department="Workshop Monitors"-->
+<!--        ></app-volunteer-list>-->
+
       </ion-col>
       <ion-col>
+        <!-- Expected -->
         <app-volunteer-list
           [data]="coffeeList"
           department="Coffee Station"
           (add)="add(coffeeList, $event)"
           (remove)="remove(coffeeList, $event)"
         ></app-volunteer-list>
+
+<!-- Provided -->
+<!--        <app-volunteer-list-->
+<!--          [data]="coffeeList"-->
+<!--          department="Coffee Station"-->
+<!--        ></app-volunteer-list>-->
       </ion-col>
     </ion-row>
   </ion-grid>
